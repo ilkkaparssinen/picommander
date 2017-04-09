@@ -1,0 +1,54 @@
+<div style="padding:16px;">
+
+  <div *ngIf="jigging" >
+    <div class="header" (click)="jigging_visible = !jigging_visible;">
+      <span class="secondary-text">Jigging</span>
+    </div>
+    <pic-settings-autojigger *ngIf="jigging_visible" [@enterAnimation]="jigging_visible">
+    </pic-settings-autojigger>
+  </div>
+  <div *ngIf="boat" >
+    <div class="header" (click)="boat_visible = !boat_visible;">
+      <span class="secondary-text">Boat</span>
+    </div>
+    <pic-settings-boat *ngIf="boat_visible" [@enterAnimation]="boat_visible">
+    </pic-settings-boat>
+  </div>
+
+  <div *ngIf="chat" >
+    <div class="header" (click)="chat_visible = !chat_visible;">
+      <span class="secondary-text">Chat</span>
+    </div>
+    <pic-chat-list *ngIf="chat_visible" [@enterAnimation]="chat_visible">
+    </pic-chat-list>
+  </div>
+
+  <div *ngIf="camera" >
+    <div class="header" (click)="camera_visible = !camerat_visible;">
+      <span class="secondary-text">Camera</span>
+    </div>
+    <pic-settings-autocamera video style="height:300px;width:100%;" *ngIf="video_visible" [@enterAnimation]="video_visible">
+
+    </pic-settings-autocamera>
+  </div>
+
+  <div *ngIf="video" >
+    <div class="header" (click)="video_visible = !video_visible;">
+      <span class="secondary-text">Video</span>
+    </div>
+    <pic-video style="height:300px;width:100%;" *ngIf="video_visible" [@enterAnimation]="video_visible">
+
+    </pic-video>
+  </div>
+
+  <div *ngIf="map" >
+    <div class="header" (click)="map_visible = !map_visible;">
+      <span class="secondary-text">Map</span>
+    </div>
+    <pic-map style="" *ngIf="map_visible" [@enterAnimation]="map_visible">
+
+    </pic-map>
+  </div>
+
+
+</div>

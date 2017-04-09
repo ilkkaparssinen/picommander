@@ -1,0 +1,15 @@
+<md-card>
+
+  <md-input-container style="width:100%;padding-bottom:10px;">
+    <input #chatid mdInput placeholder="Chat here"  [(ngModel)]="chat.message" (input)="chat.message = chatid.value;sendChat()"  />
+           </md-input-container>
+
+  <i class="fa fa-check" aria-hidden="true" (click)="checkChat()"
+     style="font-size:24px;color:#d33;position:absolute;top:2px;right:0px;cursor:pointer;"></i>
+
+  <md-card-content>
+    <div md-line *ngFor="let message of messages;" [class.pimessage]="message.who === 'PI'">
+      {{ message.message }}
+    </div>
+  </md-card-content>
+</md-card>

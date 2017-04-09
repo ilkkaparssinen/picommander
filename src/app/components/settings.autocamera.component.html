@@ -1,0 +1,19 @@
+<md-card>
+  <md-card-content>
+  Camera movement limit:
+  <md-slider min="0" max="100" step="5.0"  style="width:50%;max-width:300px;" (change)="changes()" thumbLabel tickInterval="1" [(ngModel)]="settings.motion_limit"></md-slider>
+  <br/>
+
+  <div *ngIf="settings.camera_mode === 1">
+    <button md-button type="button" (onClick)="autoOff()">Automatic photo off</button>
+  </div>
+  <div *ngIf="settings.camera_mode === 2">
+      <button md-button type="button" (onClick)="autoOn()">Set movement detector on</button>
+  </div>
+
+  <button md-button type="button" (onClick)="photo()">Take photo</button>
+
+  <div>Last movement: {{status.motion}} Max: {{status.motion_max}} Avg: {{status.motion_avg}} </div>
+
+    </md-card-content>
+</md-card>

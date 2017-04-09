@@ -1,0 +1,9 @@
+<md-card>
+  <md-card-content>
+  Jigging interval secs:
+  <md-slider min="0" max="20" step="1.0"  style="width:50%;max-width:300px;" (change)="changes()" thumbLabel tickInterval="1" [(ngModel)]="settings.jigging_time"></md-slider>
+  <br/>
+  Stopped percent:
+  <md-slider min="0" max="100" step="5.0" style="width:50%;max-width:300px;" (change)="changes()" thumbLabel tickInterval="1"  [(ngModel)]="settings.stopped_percent"></md-slider>
+    </md-card-content>
+</md-card>
