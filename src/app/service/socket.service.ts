@@ -19,15 +19,15 @@ export class SocketService {
   public topic: string = "TEST";
   public status = {};
   public settings: any = {};
-  public messages: any = [{who: "PI", message: "Huuhaa"},{who: "MOEBODY", message: "Juu"}];
+  public messages: any = [{who: "PI", message: "Huuhaa"},{who: "SOMEBODY", message: "Juu"}];
   public photo: any = "";
-  private online: boolean = false;
-  private host:any = window.document.location.host.replace(/:.*/, '');
-  private ws:any;
+  public online: boolean = false;
+  public host:any = window.document.location.host.replace(/:.*/, '');
+  public ws:any;
 
   constructor() {
-    // this.host = "52.51.75.200";
-    this.host = "localhost";
+    this.host = "52.49.204.204";
+    // this.host = "localhost";
     this.reconnect();
     this.myid = this.guidGenerator();
 
@@ -48,7 +48,7 @@ export class SocketService {
         this.reconnect();
       };
       this.ws.send(JSON.stringify({topic: this.topic,type: 'CLIENT', action: 'SUBSCRIBE'}));
-      this.sendChat({message: "Web client started for boat:" + this.topic, id: ""});
+      this.sendChat({message: "Web client started:" + this.topic, id: ""});
     };
   }
   reconnect(){
@@ -79,6 +79,7 @@ export class SocketService {
     this.ws.send(JSON.stringify(message));
     console.log("Sended settings");
     console.log(this.settings);
+    console.log(this.settings);
   }
 
   sendChat(chat): void {
@@ -99,6 +100,8 @@ export class SocketService {
     message.topic = this.topic;
     message.action = "EXTERNALPHOTO";
     message.who = this.myid;
+    console.log("EXTERNAL");
+    console.log(message);
     this.ws.send(JSON.stringify(message));
   }
 
@@ -126,8 +129,6 @@ export class SocketService {
       Object.assign(this.settings, data);
       this.settingsChanged.emit(this.settings);
       console.log("Settings received");
-      console.log(this.settings);
-
     }
     if (data.action === 'PHOTO') {
       this.photo =  data.image;
@@ -159,7 +160,7 @@ export class SocketService {
       this.messagesChanged.next(data.image);
     }
     if (data.action === 'IMAGE') {
-      this.imageChanged.next(data.image);
+      this.imageChanged.emit(data.image);
     }
   }
 

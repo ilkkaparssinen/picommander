@@ -15,8 +15,8 @@ import {SocketService} from '../service/socket.service';
 })
 export class SettingsAutoCameraComponent {
 
-  private settings: any = {};
-  private status: any = {};
+  public settings: any = {};
+  public status: any = {};
 
   constructor(private socketService: SocketService) {
     this.settings = this.socketService.settings;
@@ -41,7 +41,7 @@ export class SettingsAutoCameraComponent {
 
   }
 
-  takePhoto() {
+  photo() {
     this.socketService.takeExternalPhoto();
   }
 

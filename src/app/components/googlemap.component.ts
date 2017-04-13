@@ -28,10 +28,10 @@ declare var google:any;
 })
 
 export class GoogleMapComponent {
-  private map: any;
+  public map: any;
   @ViewChild('mapPlace') mapPlace: any;
-  private calcspeed = 0;
-  private status = {latitude: 62.0, longitude: 20.0, speed: 0.0};
+  public calcspeed = 0;
+  public status = {latitude: 62.0, longitude: 20.0, speed: 0.0};
 
 
   ngOnInit() {
@@ -52,7 +52,6 @@ export class GoogleMapComponent {
 
    //  if (!this.status['longitude']) return;
    // Test
-   console.log(this.status);
     this.status.longitude = 28.239;
     this.status.latitude = 61.609;
     // Take markers out
@@ -74,7 +73,6 @@ export class GoogleMapComponent {
     if (this.status.speed) this.calcspeed = Math.round(this.status['speed'] * 36) / 10.0;
 
     this.showMap(this.status.latitude, this.status.longitude);
-    console.log("SHow map");
     //  speedtext.style.transform='rotate(' + this.status["track"] + 'deg)';
   }
 
@@ -85,9 +83,6 @@ export class GoogleMapComponent {
       var mapOptions = {
         zoom: 14,
       };
-      console.log(latitude);
-
-      console.log(longitude);
 
       if (!this.map) this.map = new google.maps.Map(this.mapPlace.nativeElement, mapOptions);
       this.map.setCenter({ lat: latitude, lng: longitude });
@@ -96,8 +91,6 @@ export class GoogleMapComponent {
         map: this.map,
         title: ""
       });
-      console.log("SHOW MAP");
-      console.log(this.map);
       google.maps.event.trigger(this.map, 'resize');
 
 

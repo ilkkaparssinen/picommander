@@ -29,19 +29,19 @@ import { Component , EventEmitter, Input, Output,  trigger, transition, style, s
 })
 export class DefaultPageComponent {
 
-  private jigging: boolean = true;
-  private chat: boolean = true;
-  private map: boolean = true;
-  private boat: boolean = true;
-  private video: boolean = true;
-  private camera: boolean = true;
+  public jigging: boolean = true;
+  public chat: boolean = true;
+  public map: boolean = true;
+  public boat: boolean = true;
+  public video: boolean = true;
+  public camera: boolean = true;
 
-  private jigging_visible: boolean = true;
-  private chat_visible: boolean = true;
-  private map_visible: boolean = true;
-  private boat_visible: boolean = true;
-  private video_visible: boolean = true;
-  private camera_visible: boolean = true;
+  public jigging_visible: boolean = true;
+  public chat_visible: boolean = true;
+  public map_visible: boolean = true;
+  public boat_visible: boolean = true;
+  public video_visible: boolean = true;
+  public camera_visible: boolean = true;
 
 
   constructor() { }

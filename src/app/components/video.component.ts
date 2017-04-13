@@ -10,7 +10,7 @@ import { Component , EventEmitter, Input, Output, ViewChild} from '@angular/core
   }
 })
 export class VideoComponent  {
-  private lastImage: any;
+  public lastImage: any;
   photoRequested: boolean = false;
   @ViewChild('canvas') canvas: any;
   @ViewChild('canvasContainer') canvasContainer: any;
@@ -60,7 +60,7 @@ export class VideoComponent  {
 
   changeImage(image) {
     this.lastImage = image;
-    var canvas: any = document.getElementById('videostream');
+    var canvas: any = this.canvas.nativeElement;
     if (!canvas) return;
     var rect = canvas.getBoundingClientRect();
     var context = canvas.getContext('2d');

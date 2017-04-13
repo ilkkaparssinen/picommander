@@ -14,7 +14,7 @@ import {SocketService} from '../service/socket.service';
 })
 export class SettingsBoatComponent {
 
-  private settings:any = {};
+  public settings:any = {};
 
   constructor(private socketService: SocketService) {
     this.settings = this.socketService.getSettings();

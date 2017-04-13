@@ -15,7 +15,7 @@ import {SocketService} from '../service/socket.service';
 })
 export class SettingsAutoJiggerComponent {
 
-  private settings:any = {};
+  public settings:any = {};
 
   constructor(private socketService: SocketService) {
     this.settings = this.socketService.settings;

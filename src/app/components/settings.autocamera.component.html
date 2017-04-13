@@ -5,13 +5,13 @@
   <br/>
 
   <div *ngIf="settings.camera_mode === 1">
-    <button md-button type="button" (onClick)="autoOff()">Automatic photo off</button>
+    <button md-button type="button" (click)="autoOff()">Automatic photo off</button>
   </div>
   <div *ngIf="settings.camera_mode === 2">
-      <button md-button type="button" (onClick)="autoOn()">Set movement detector on</button>
+      <button md-button type="button" (click)="autoOn()">Set movement detector on</button>
   </div>
 
-  <button md-button type="button" (onClick)="photo()">Take photo</button>
+  <button md-button type="button" (click)="photo()">Take photo</button>
 
   <div>Last movement: {{status.motion}} Max: {{status.motion_max}} Avg: {{status.motion_avg}} </div>
 
